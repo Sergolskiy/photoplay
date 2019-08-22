@@ -2154,6 +2154,7 @@ button:focus {
   font-size: 16px;
   line-height: 24px;
   position: relative;
+  align-items: center;
 }
 .program-page__programs-dates-btn{
   position: relative;
@@ -2168,8 +2169,9 @@ button:focus {
 .program-page__programs-dates-btn label {
   background: #e7f1fd;
   position: absolute;
-  width: 100%;
+  /*width: 100%;*/
   height: 100%;
+  width: 56px;
   display: flex;
   transition: .3s;
   border: 1px solid transparent;
@@ -2203,26 +2205,33 @@ button:focus {
   border: 1px solid #cccccc;
 }
 .program-page__programs-dates-txt {
-  padding-left: 14px;
+  margin-left: 14px;
 }
 .program-page__schedule {
-
+  display: flex;
+  align-items: center;
 }
 .program-page__schedule-link {
   color: black;
   position: relative;
-  padding-right: 13px;
+  /*padding-right: 13px;*/
   display: flex;
 }
-.program-page__schedule-link:after {
-  content: '';
-  background: url(../img/svg/arrow_up_right.svg) center no-repeat;
-  position: absolute;
-  top: 5px;
-  right: 0;
-  display: flex;
-  width: 9px;
-  height: 9px;
+.program-page__schedule-link svg{
+  transition: 0.3s;
+}
+/*.program-page__schedule-link:after {*/
+/*  content: '';*/
+/*  background: url(../img/svg/arrow_up_right.svg) center no-repeat;*/
+/*  position: absolute;*/
+/*  top: 5px;*/
+/*  right: 0;*/
+/*  display: flex;*/
+/*  width: 9px;*/
+/*  height: 9px;*/
+/*}*/
+.program-page__schedule-link:hover svg {
+  transform: translate(4px, -4px);
 }
 .program-page__all-programs {
   display: flex;
@@ -2590,13 +2599,26 @@ button:focus {
   }
 
   /******************************************************************/
+  .program-page {
+    padding-top: 0px;
+  }
   .program-page__big-title {
     display: none;
   }
   .program-page__top {
     flex-wrap: wrap;
   }
-
+  .program-page__top-left {
+    margin-top: 10px;
+  }
+  .program-page__all-programs-item {
+    margin-right: 5px;
+    margin-bottom: 10px;
+  }
+  .program-page__title {
+    font-size: 32px;
+    line-height: 32px;
+  }
 
   /*******************************************************************/
 }
@@ -2641,7 +2663,12 @@ button:focus {
 
 
   /******************************************************************/
-
+  .program-page__body {
+    margin-top: 5px;
+  }
+  .program-page__body-list-wrap {
+    margin-bottom: 30px;
+  }
 
 
   /*******************************************************************/
@@ -2671,8 +2698,24 @@ button:focus {
 
 
   /******************************************************************/
-
-
+  .program-page__all-programs {
+    justify-content: flex-start;
+  }
+  .program-page__all-programs-item {
+    margin-right: 5px;
+    margin-bottom: 5px;
+    font-size: 12px;
+    padding: 4px 12px;
+  }
+  .program-page__all-programs-item--active:after {
+    width: 6px;
+    height: 6px;
+    right: 7px;
+    top: 14px;
+  }
+  .program-page__all-programs-item--active {
+    padding: 5px 16px 5px 12px;
+  }
 
   /*******************************************************************/
 }
@@ -2682,6 +2725,16 @@ button:focus {
     display: none;
   }
 
+  .program-page__top-left {
+    flex-wrap: wrap;
+  }
+  .program-page__programs-dates,
+  .program-page__schedule {
+    margin-top: 10px;
+  }
+  .program-page__programs-dates {
+    font-size: 14px;
+  }
 
   /******************************************************************/
 
