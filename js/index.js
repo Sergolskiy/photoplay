@@ -110,9 +110,39 @@ $(document).ready(function () {
     });
 
     $('.full-block__slider').slick({});
+    $('.slider-screen').slick({
+
+        responsive: [
+            {
+                breakpoint: 2000,
+                settings: {
+                    slidesToShow: 7,
+                    slidesToScroll: 1,
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                }
+            },
+            {
+                breakpoint: 350,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                }
+            }
+        ]
+    });
+
 
     if ($(window).width() < 700) {
         $('.programs__list').slick({});
+        $('.similar-courses__inner').slick({
+            slidesToShow: 2,
+        });
     }
 
     if ($(window).width() < 700) {
@@ -254,6 +284,17 @@ $(document).ready(function () {
 
             if($('.timetable__month-other').hasClass('open') && !e.target.closest('.timetable__month')){
                 $('.timetable__month-main').click();
+            }
+        });
+    }
+
+
+    if($('.fixed-transparent').length > 0 && $(window).width() > 1200){
+        $(window).scroll(function () {
+            if(this.pageYOffset > 0){
+                $('header.fixed').removeClass('fixed-transparent');
+            } else {
+                $('header.fixed').addClass('fixed-transparent');
             }
         });
     }
