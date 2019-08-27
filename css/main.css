@@ -2577,6 +2577,141 @@ button:focus {
 
 
 
+/******************************ABOUT*******************************/
+.about-page {
+  padding-top: 100px;
+}
+.about-page-slider {
+
+}
+.about-features {
+  margin-top: 85px;
+  margin-bottom: 65px;
+}
+.about-features__list {
+  display: flex;
+  justify-content: space-between;
+}
+.about-features__item {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  position: relative;
+}
+.about-features__num {
+  font-size: 16px;
+  line-height: 24px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.about-features__content {
+  display: flex;
+  flex-direction: column;
+  padding-left: 55px;
+  padding-right: 55px;
+}
+.about-features__title {
+  font-size: 24px;
+  line-height: 28px;
+  margin-bottom: 12px
+}
+.about-features__desc {
+  font-size: 16px;
+  line-height: 24px;
+  opacity: 0.6;
+}
+.about-documents {
+  margin-bottom: 80px;
+}
+.about-documents__txt {
+  font-size: 16px;
+  line-height: 24px;
+  padding: 0 55px;
+}
+.about-documents__links {
+  display: flex;
+  flex-direction: column;
+}
+.about-documents__link {
+  font-size: 12px;
+  line-height: 24px;
+  text-align: center;
+  color: #C0C0C0;
+  border: 1px solid #C0C0C0;
+  box-sizing: border-box;
+  border-radius: 4px;
+  height: 40px;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+.about-documents__link:hover {
+  color: white;
+  background: #C0C0C0;
+}
+.about-page-contacts-bg {
+  background: #F0F0F0;
+}
+
+
+.review__input .input {
+  max-width: 100%;
+}
+
+.review__input svg {
+  width: 300%;
+}
+
+
+
+/*БЛОК ПРОГРАММЫ АРТ  -  заменить!*/
+.upcoming-courses {
+  padding-top: 100px;
+}
+.upcoming-courses__title {
+  font-size: 32px;
+  line-height: 36px;
+  border-bottom: 1px solid #000000;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+.upcoming-courses__list {
+  border-bottom: 1px solid #000000;
+  padding-top: 40px;
+  padding-bottom: 80px;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+.upcoming-courses__item {
+  width: 20%;
+  display: inline-block;
+  padding: 0 15px;
+  vertical-align: top;
+}
+.upcoming-courses__img img{
+  width: 100%;
+}
+.upcoming-courses__item-title {
+  font-size: 16px;
+  line-height: 24px;
+  margin-top: 12px;
+}
+.upcoming-courses__item-time {
+  font-size: 16px;
+  line-height: 24px;
+  color: #949494;
+}
+.upcoming-courses__item-desc {
+  font-size: 16px;
+  line-height: 24px;
+}
+/*END*/
+
+/******************************************************************/
+
 @media (max-width: 1200px) {
   .timetable{
     padding-top: 0;
@@ -2665,7 +2800,11 @@ button:focus {
 }
 
 
+/******************************ABOUT*******************************/
 
+
+
+/******************************************************************/
 
 
 
@@ -2715,6 +2854,13 @@ button:focus {
   }
 
   /*******************************************************************/
+
+
+  /******************************ABOUT*******************************/
+
+
+
+  /******************************************************************/
 }
 
 @media (max-width: 720px) {
@@ -2773,6 +2919,13 @@ button:focus {
     font-size: 20px;
   }
   /*******************************************************************/
+
+
+  /******************************ABOUT*******************************/
+
+
+
+  /******************************************************************/
 }
 
 @media (max-width: 580px) {
@@ -2808,6 +2961,13 @@ button:focus {
 
 
   /*******************************************************************/
+
+
+  /******************************ABOUT*******************************/
+
+
+
+  /******************************************************************/
 }
 
 @media (max-width: 480px) {
@@ -2828,6 +2988,13 @@ button:focus {
 
 
   /*******************************************************************/
+
+
+  /******************************ABOUT*******************************/
+
+
+
+  /******************************************************************/
 }
 @media (max-width: 450px) {
   .timetable__day-item{
@@ -2860,4 +3027,12 @@ button:focus {
     align-items: flex-start;
   }
   /*******************************************************************/
+
+
+
+  /******************************ABOUT*******************************/
+
+
+
+  /******************************************************************/
 }

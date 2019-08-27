@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head><title>Photoplay</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <meta name="description" content="Photoplay">
+    <link rel="stylesheet" href="css/libs.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="page">
+<div class="page__wrapper">
+    <svg>
+        <symbol id="small-arrow">
+            <path class="st0123123" fill="currentColor" fill-rule="evenodd"
+                  d="M47.7,11.7l-23.9-1.6l-4.5,4.5L40.4,16L7.3,49.1l3,3L43.4,19L44.8,40l4.5-4.5L47.7,11.7z"></path>
+        </symbol>
+        <symbol id="svg-vk">
+            <path d="M14.3044 3.76501C15.9601 1.52356 15.5929 1.48157 16 0.78125H12.8273C12.8273 0.78125 12.6018 1.56409 12.533 1.70422C11.9236 2.9436 10.5568 4.80322 9.7301 4.99329C8.91614 5.18054 9.02417 3.25696 9.07434 2.42371C9.12158 1.65137 9.11353 1.3811 9.09082 1.24768C9.05762 1.05273 8.89404 0.910522 8.69775 0.885742C8.29309 0.834473 7.55884 0.761963 6.73657 0.800049L6.00098 0.824463C6.29102 1.47327 6.48694 1.27441 6.59375 2.02502C6.71436 2.90381 6.66687 5.04211 5.80139 5.04211C4.41394 5.04211 2.85657 0.875122 2.80701 0.78125H0L0.256836 1.42395C2.32678 6.60583 4.91565 9.00586 8.45776 9.20544L8.9187 9.21875L8.95166 8.77112C9.00146 8.07983 9.34827 7.08472 9.96338 7.08472C10.8722 7.08472 11.1348 7.34937 11.7341 8.08997C12.3104 8.80005 12.7075 9.21875 13.6375 9.21875H16L15.6631 8.54126C15.137 7.48499 14.0817 6.57947 13.6696 6.0542C13.5203 5.85645 13.3733 5.54382 13.5254 5.16565C13.6498 4.8363 14.0201 4.14941 14.3044 3.76501Z"
+                  fill="currentColor"></path>
+        </symbol>
+        <symbol id="svg-fb">
+            <path d="M10.2422 0H1.75781C0.788635 0 0 0.788635 0 1.75781V10.2422C0 11.2114 0.788635 12 1.75781 12H5.29688V7.75781H3.89062V5.64844H5.29688V4.21875C5.29688 3.05557 6.24307 2.10938 7.40625 2.10938H9.53906V4.21875H7.40625V5.64844H9.53906L9.1875 7.75781H7.40625V12H10.2422C11.2114 12 12 11.2114 12 10.2422V1.75781C12 0.788635 11.2114 0 10.2422 0Z"
+                  fill="currentColor"></path>
+        </symbol>
+        <symbol id="svg-tg">
+            <path d="M2.88739 6.83762L4.37988 10.5686L6.32291 8.62555L9.65433 11.2734L12 0.726562L0 5.72498L2.88739 6.83762ZM8.57098 3.75256L4.89798 7.10275L4.44049 8.82697L3.59537 6.71375L8.57098 3.75256Z"
+                  fill="currentColor"></path>
+        </symbol>
+        <symbol id="svg-inst">
+            <path d="M8.51421 0H3.48581C1.56373 0 0 1.56373 0 3.48581V8.51419C0 10.4363 1.56373 12 3.48581 12H8.51419C10.4363 12 12 10.4363 12 8.51421V3.48581C12 1.56373 10.4363 0 8.51421 0ZM11.0625 8.51419C11.0625 9.91934 9.91934 11.0625 8.51421 11.0625H3.48581C2.08066 11.0625 0.9375 9.91934 0.9375 8.51421V3.48581C0.9375 2.08066 2.08066 0.9375 3.48581 0.9375H8.51419C9.91934 0.9375 11.0625 2.08066 11.0625 3.48581V8.51419Z"
+                  fill="currentColor"></path>
+            <path d="M6 2.76562C4.21655 2.76562 2.76562 4.21655 2.76562 6C2.76562 7.78345 4.21655 9.23438 6 9.23438C7.78345 9.23438 9.23438 7.78345 9.23438 6C9.23438 4.21655 7.78345 2.76562 6 2.76562ZM6 8.29688C4.73351 8.29688 3.70312 7.26649 3.70312 6C3.70312 4.73351 4.73351 3.70312 6 3.70312C7.26649 3.70312 8.29688 4.73351 8.29688 6C8.29688 7.26649 7.26649 8.29688 6 8.29688Z"
+                  fill="currentColor"></path>
+            <path d="M9.28125 3.1875C9.54013 3.1875 9.75 2.97763 9.75 2.71875C9.75 2.45987 9.54013 2.25 9.28125 2.25C9.02237 2.25 8.8125 2.45987 8.8125 2.71875C8.8125 2.97763 9.02237 3.1875 9.28125 3.1875Z"
+                  fill="currentColor"></path>
+        </symbol>
+
+    </svg>
+    <header class="fixed only-fixed">
+        <div class="header__menu-button"><a class="menu-trigger type7" href="#"><span></span><span></span><span></span></a>
+        </div>
+        <div class="header">
+            <div class="header__inner">
+                <div class="header__top">
+                    <div class="header__top-left">
+                        <a href="#">
+                            <svg width="116" height="15" viewBox="0 0 116 15" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0.187988 0.949887V13.9999H3.26599V9.48189H5.20999C8.59399 9.48189 11.132 8.63589 11.132 5.19789C11.132 1.77789 8.59399 0.949887 5.20999 0.949887H0.187988ZM5.29999 3.54189C6.73999 3.54189 7.87399 3.82989 7.87399 5.19789C7.87399 6.56589 6.73999 6.88989 5.29999 6.88989H3.26599V3.54189H5.29999Z"
+                                      fill="white"></path>
+                                <path d="M21.4116 0.949887V5.93589H16.0476V0.949887H12.9696V13.9999H16.0476V8.65389H21.4116V13.9999H24.4896V0.949887H21.4116Z"
+                                      fill="white"></path>
+                                <path d="M29.9399 7.48389C29.9399 4.71189 31.5239 3.27189 33.4499 3.27189C35.3759 3.27189 36.9599 4.71189 36.9599 7.48389C36.9599 10.2559 35.3759 11.6959 33.4499 11.6959C31.5239 11.6959 29.9399 10.2559 29.9399 7.48389ZM40.2179 7.48389C40.2179 3.41589 37.4459 0.733887 33.4499 0.733887C29.4359 0.733887 26.6819 3.41589 26.6819 7.48389C26.6819 11.5519 29.4359 14.2339 33.4499 14.2339C37.4459 14.2339 40.2179 11.5519 40.2179 7.48389Z"
+                                      fill="white"></path>
+                                <path d="M45.0386 13.9999H48.1346V3.64989H52.3286V0.949887H40.8626V3.64989H45.0386V13.9999Z"
+                                      fill="white"></path>
+                                <path d="M56.2415 7.48389C56.2415 4.71189 57.8255 3.27189 59.7515 3.27189C61.6775 3.27189 63.2615 4.71189 63.2615 7.48389C63.2615 10.2559 61.6775 11.6959 59.7515 11.6959C57.8255 11.6959 56.2415 10.2559 56.2415 7.48389ZM66.5195 7.48389C66.5195 3.41589 63.7475 0.733887 59.7515 0.733887C55.7375 0.733887 52.9835 3.41589 52.9835 7.48389C52.9835 11.5519 55.7375 14.2339 59.7515 14.2339C63.7475 14.2339 66.5195 11.5519 66.5195 7.48389Z"
+                                      fill="white"></path>
+                                <path d="M68.7017 0.949887V13.9999H71.7797V9.48189H73.7237C77.1077 9.48189 79.6457 8.63589 79.6457 5.19789C79.6457 1.77789 77.1077 0.949887 73.7237 0.949887H68.7017ZM73.8137 3.54189C75.2537 3.54189 76.3877 3.82989 76.3877 5.19789C76.3877 6.56589 75.2537 6.88989 73.8137 6.88989H71.7797V3.54189H73.8137Z"
+                                      fill="white"></path>
+                                <path d="M84.5613 0.949887H81.4833V13.9999H90.8253V11.2819H84.5613V0.949887Z"
+                                      fill="white"></path>
+                                <path d="M91.4928 13.9999H94.7688L95.5428 11.6779H100.583L101.375 13.9999H104.723L99.7908 0.949887H96.4068L91.4928 13.9999ZM98.0808 4.20789L99.7548 9.17589H96.3888L98.0808 4.20789Z"
+                                      fill="white"></path>
+                                <path d="M102.864 0.949887L107.778 8.92389V13.9999H110.856V8.95989L115.896 0.949887H112.332L109.38 5.95389L106.464 0.949887H102.864Z"
+                                      fill="white"></path>
+                            </svg>
+                        </a>
+
+                    </div>
+                    <div class="header__top-right"><a href="#">
+                        <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14.0151 14.0151L21 21" stroke="white" stroke-width="2"
+                                  stroke-linecap="square"></path>
+                            <path d="M8.5 16C12.6421 16 16 12.6421 16 8.5C16 4.35786 12.6421 1 8.5 1C4.35786 1 1 4.35786 1 8.5C1 12.6421 4.35786 16 8.5 16Z"
+                                  stroke="white" stroke-width="2" stroke-linecap="square"></path>
+                        </svg>
+                    </a></div>
+                </div>
+
+            </div>
+            <div class="header__menu">
+                <div class="header__top header__top--menu">
+                    <div class="header__top-left">
+                        <svg width="116" height="15" viewBox="0 0 116 15" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0.187988 0.949887V13.9999H3.26599V9.48189H5.20999C8.59399 9.48189 11.132 8.63589 11.132 5.19789C11.132 1.77789 8.59399 0.949887 5.20999 0.949887H0.187988ZM5.29999 3.54189C6.73999 3.54189 7.87399 3.82989 7.87399 5.19789C7.87399 6.56589 6.73999 6.88989 5.29999 6.88989H3.26599V3.54189H5.29999Z"
+                                  fill="white"></path>
+                            <path d="M21.4116 0.949887V5.93589H16.0476V0.949887H12.9696V13.9999H16.0476V8.65389H21.4116V13.9999H24.4896V0.949887H21.4116Z"
+                                  fill="white"></path>
+                            <path d="M29.9399 7.48389C29.9399 4.71189 31.5239 3.27189 33.4499 3.27189C35.3759 3.27189 36.9599 4.71189 36.9599 7.48389C36.9599 10.2559 35.3759 11.6959 33.4499 11.6959C31.5239 11.6959 29.9399 10.2559 29.9399 7.48389ZM40.2179 7.48389C40.2179 3.41589 37.4459 0.733887 33.4499 0.733887C29.4359 0.733887 26.6819 3.41589 26.6819 7.48389C26.6819 11.5519 29.4359 14.2339 33.4499 14.2339C37.4459 14.2339 40.2179 11.5519 40.2179 7.48389Z"
+                                  fill="white"></path>
+                            <path d="M45.0386 13.9999H48.1346V3.64989H52.3286V0.949887H40.8626V3.64989H45.0386V13.9999Z"
+                                  fill="white"></path>
+                            <path d="M56.2415 7.48389C56.2415 4.71189 57.8255 3.27189 59.7515 3.27189C61.6775 3.27189 63.2615 4.71189 63.2615 7.48389C63.2615 10.2559 61.6775 11.6959 59.7515 11.6959C57.8255 11.6959 56.2415 10.2559 56.2415 7.48389ZM66.5195 7.48389C66.5195 3.41589 63.7475 0.733887 59.7515 0.733887C55.7375 0.733887 52.9835 3.41589 52.9835 7.48389C52.9835 11.5519 55.7375 14.2339 59.7515 14.2339C63.7475 14.2339 66.5195 11.5519 66.5195 7.48389Z"
+                                  fill="white"></path>
+                            <path d="M68.7017 0.949887V13.9999H71.7797V9.48189H73.7237C77.1077 9.48189 79.6457 8.63589 79.6457 5.19789C79.6457 1.77789 77.1077 0.949887 73.7237 0.949887H68.7017ZM73.8137 3.54189C75.2537 3.54189 76.3877 3.82989 76.3877 5.19789C76.3877 6.56589 75.2537 6.88989 73.8137 6.88989H71.7797V3.54189H73.8137Z"
+                                  fill="white"></path>
+                            <path d="M84.5613 0.949887H81.4833V13.9999H90.8253V11.2819H84.5613V0.949887Z"
+                                  fill="white"></path>
+                            <path d="M91.4928 13.9999H94.7688L95.5428 11.6779H100.583L101.375 13.9999H104.723L99.7908 0.949887H96.4068L91.4928 13.9999ZM98.0808 4.20789L99.7548 9.17589H96.3888L98.0808 4.20789Z"
+                                  fill="white"></path>
+                            <path d="M102.864 0.949887L107.778 8.92389V13.9999H110.856V8.95989L115.896 0.949887H112.332L109.38 5.95389L106.464 0.949887H102.864Z"
+                                  fill="white"></path>
+                        </svg>
+                    </div>
+                    <div class="header__top-right"><a href="#">
+                        <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14.0151 14.0151L21 21" stroke="white" stroke-width="2"
+                                  stroke-linecap="square"></path>
+                            <path d="M8.5 16C12.6421 16 16 12.6421 16 8.5C16 4.35786 12.6421 1 8.5 1C4.35786 1 1 4.35786 1 8.5C1 12.6421 4.35786 16 8.5 16Z"
+                                  stroke="white" stroke-width="2" stroke-linecap="square"></path>
+                        </svg>
+                    </a></div>
+                </div>
+                <a class="header__menu-lk" href="#">+ &nbsp; Личный кабинет</a><a class="header__menu-phone"
+                                                                                  href="tel:+74951234564">+7 (495) 123
+                45 64</a>
+                <div class="header__menu-inner">
+                    <div class="header__menu-list-wrap"><a class="header__menu-title" href="#">Школа</a>
+                        <div class="header__menu-list">
+                            <div class="header__menu-item"><a class="header__menu-link" href="#">Программы</a></div>
+                            <div class="header__menu-item"><a class="header__menu-link" href="#">Расписание</a></div>
+                            <div class="header__menu-item"><a class="header__menu-link" href="#">Фототуры</a></div>
+                            <div class="header__menu-item"><a class="header__menu-link" href="#">Онлайн-обучение</a>
+                            </div>
+                            <div class="header__menu-item"><a class="header__menu-link" href="#">О школе</a></div>
+                            <div class="header__menu-item"><a class="header__menu-link" href="#">Преподаватели</a></div>
+                            <div class="header__menu-item"><a class="header__menu-link" href="#">Работы студентов</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header__menu-list-wrap"><a class="header__menu-title" href="#">Контакты</a>
+                        <div class="header__menu-contacts">107078, Москва,</div>
+                        <div class="header__menu-contacts">Каланчевская улица,</div>
+                        <div class="header__menu-contacts">дом 17 с.1, 6-й этаж</div>
+                        <div class="header__menu-contacts"><a href="tel:7(495)1234564">+7 (495) 123 45 64</a></div>
+                    </div>
+                    <div class="header__menu-list-wrap"><a class="header__menu-title" href="#">Аренда</a>
+                        <div class="header__menu-list">
+                            <div class="header__menu-item"><a class="header__menu-link" href="#">Для съемок</a></div>
+                            <div class="header__menu-item"><a class="header__menu-link" href="#">Для тренингов</a></div>
+                        </div>
+                    </div>
+                    <div class="header__menu-list-wrap"><a class="header__menu-title" href="#">Блог</a>
+                        <div class="header__menu-list">
+                            <div class="header__menu-item"><a class="header__menu-link" href="#">Видео</a></div>
+                            <div class="header__menu-item"><a class="header__menu-link" href="#">Выусники Photoplay</a>
+                            </div>
+                            <div class="header__menu-item"><a class="header__menu-link" href="#">Инстаграм дня</a></div>
+                        </div>
+                    </div>
+                    <div class="header__menu-list-wrap header__menu-list-wrap--social">
+                        <div class="header__social">
+                            <div class="header__social-list"><a class="header__social-link header__social-link--tg"
+                                                                href="#">
+                                <svg class="svg-icon" version="1.1" x="0px" y="0px" viewBox="0 0 12 11" xml:space="preserve"><use xlink:href="#svg-tg"></use></svg>
+                            </a><a class="header__social-link header__social-link--vk" href="#">
+                                <svg class="svg-icon" version="1.1" x="0px" y="0px" viewBox="0 0 16 9" xml:space="preserve"><use xlink:href="#svg-vk"></use></svg>
+                            </a><a class="header__social-link header__social-link--inst" href="#">
+                                <svg class="svg-icon" version="1.1" x="0px" y="0px" viewBox="0 0 12 12" xml:space="preserve"><use xlink:href="#svg-inst"></use></svg>
+                            </a><a class="header__social-link header__social-link--fb" href="#">
+                                <svg class="svg-icon" version="1.1" x="0px" y="0px" viewBox="0 0 12 12" xml:space="preserve"><use xlink:href="#svg-fb"></use></svg>
+                            </a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header__social">
+                <div class="header__social-list"><a class="header__social-link header__social-link--tg" href="#">
+                    <svg class="svg-icon" version="1.1" x="0px" y="0px" viewBox="0 0 12 11" xml:space="preserve"><use xlink:href="#svg-tg"></use></svg>
+                </a><a class="header__social-link header__social-link--vk" href="#">
+                    <svg class="svg-icon" version="1.1" x="0px" y="0px" viewBox="0 0 16 9" xml:space="preserve"><use xlink:href="#svg-vk"></use></svg>
+                </a><a class="header__social-link header__social-link--inst" href="#">
+                    <svg class="svg-icon" version="1.1" x="0px" y="0px" viewBox="0 0 12 12" xml:space="preserve"><use xlink:href="#svg-inst"></use></svg>
+                </a><a class="header__social-link header__social-link--fb" href="#">
+                    <svg class="svg-icon" version="1.1" x="0px" y="0px" viewBox="0 0 12 12" xml:space="preserve"><use xlink:href="#svg-fb"></use></svg>
+                </a></div>
+            </div>
+        </div>
+    </header>
+    <main class="page__content"><!-- Content-->
+        <div class="main-wrap">
+            <div class="container about-page">
+                <div class="container about-page-slider">
+                    <div class="row">
+                        <div class="col-md-12">
+                           slider
+                        </div>
+                    </div>
+                </div>
+                <div class="about-features">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="about-features__list">
+                                <div class="about-features__item">
+                                    <div class="about-features__num">
+                                        1
+                                    </div>
+                                    <div class="about-features__content">
+                                        <div class="about-features__title">
+                                            Мы считаем, что врожденных талантов не существует
+                                        </div>
+                                        <div class="about-features__desc">
+                                            Несмотря на то, что многие считают, что великие фотографы были рождены одаренными особым талантом, наша практика показывает, что взгляду на мир можно научится - можно научится видеть кадр.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="about-features__item">
+                                    <div class="about-features__num">
+                                        2
+                                    </div>
+                                    <div class="about-features__content">
+                                        <div class="about-features__title">
+                                            Мы умеем слушать
+                                        </div>
+                                        <div class="about-features__desc">
+                                            Все, что мы делаем, начинается с попытки по-настоящему понять - понять индустрию, фотографию как искусство, друг друга, мир вокруг нас. Но мы не слушаем пассивно. Мы постоянно подвергаем сомнению наши предположения, а также открыты и содействуем вашим.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="about-features__item">
+                                    <div class="about-features__num">
+                                        3
+                                    </div>
+                                    <div class="about-features__content">
+                                        <div class="about-features__title">
+                                            15 лет в сфере обучения
+                                        </div>
+                                        <div class="about-features__desc">
+                                            Школа основана в 2005 году. Хоть это и имеет смысл, но мы не будем много говорить об этом. То, что мы делаем сейчас, это то, что на самом деле важно.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-documents">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <div class="about-documents__txt">
+                                        Школа Photoplay - образовательный комплекс, расположенный в современном лофте на Красных воротах. В дневное время в студиях снимают глянцевые журналы и рекламные агентства, по вечерам и в выходные проходят занятия. Photoplay предлагает программы разного уровня: от базовых курсов для начинающих фотографов до профессиональных программ.
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="about-documents__links">
+                                        <a href="#" class="about-documents__link">
+                                            Лицензии и сертификаты
+                                        </a>
+                                        <a href="#" class="about-documents__link">
+                                            Учредительные документы
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="container programs">-->
+                <div class="programs">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2 class="programs__title"><a class="programs__title-link" href="#">Программы
+                                <svg class="svg-icon" version="1.1" x="0px" y="0px" viewBox="0 0 59 59"
+                                     style="enable-background:new 0 0 59 59;" xml:space="preserve"><use xlink:href="#small-arrow"></use></svg>
+                            </a></h2>
+                            <div class="programs__list">
+                                <div class="programs__item">
+                                    <!--<div class="programs__img"><img class="b-lazy" alt="img"-->
+                                                                    <!--src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="-->
+                                                                    <!--data-src="img/Screenshot_3.jpg"></div>-->
+                                    <div class="programs__desc">
+                                        <div class="programs__link-title">Основы ↗</div>
+                                        <div class="programs__links">
+                                            <div class="programs__links-item">Фотография для Instagram</div>
+                                            <div class="programs__links-item">Основы фотографии 16. Базовый курс</div>
+                                            <div class="programs__links-item">Lightroom и Photoshop</div>
+                                            <div class="programs__links-item">Студийный минимум</div>
+                                            <div class="programs__links-item">Основы композиции</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="programs__item">
+                                    <!--<div class="programs__img"><img class="b-lazy" alt="img"-->
+                                                                    <!--src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="-->
+                                                                    <!--data-src="img/Screenshot_4.jpg"></div>-->
+                                    <div class="programs__desc">
+                                        <div class="programs__link-title">Специализация ↗</div>
+                                        <div class="programs__links">
+                                            <div class="programs__links-item">Рынок рекламной фотографии</div>
+                                            <div class="programs__links-item">Продюсирование для фотографов</div>
+                                            <div class="programs__links-item">Фотограф-фрилансер</div>
+                                            <div class="programs__links-item">Фотография для фотобанков<a
+                                                    href="#">Online</a></div>
+                                            <div class="programs__links-item"> Портфолио, тренды, Instagram</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="programs__item">
+                                    <!--<div class="programs__img"><img class="b-lazy" alt="img"-->
+                                                                    <!--src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="-->
+                                                                    <!--data-src="img/Screenshot_5.jpg"></div>-->
+                                    <div class="programs__desc">
+                                        <div class="programs__link-title">Профессиональные ↗</div>
+                                        <div class="programs__links">
+                                            <div class="programs__links-item">Современная фотография</div>
+                                            <div class="programs__links-item">Коммерческая фотография</div>
+                                            <div class="programs__links-item">Современный натюрморт</div>
+                                            <div class="programs__links-item">Фотограф в Fahion Media</div>
+                                            <div class="programs__links-item">All rights reserved</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="container teachers">-->
+                <div class="teachers">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="teachers__title">Преподаватели</div>
+                            <div class="teachers__slider">
+                                <div class="teachers__slider-item teachers__slider-item-1">
+                                    <div class="teachers__slider-img"><img class="b-lazy" alt="img"
+                                                                           src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                                                           data-src="img/image 13.jpg"></div>
+                                    <div class="teachers__slider-name">Влада Красильникова</div>
+                                    <div class="teachers__slider-caption">Студийная фотография</div>
+                                </div>
+                                <div class="teachers__slider-item teachers__slider-item-2">
+                                    <div class="teachers__slider-img"><img class="b-lazy" alt="img"
+                                                                           src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                                                           data-src="img/image 18.jpg"></div>
+                                    <div class="teachers__slider-name">Иван Князев</div>
+                                    <div class="teachers__slider-caption">Fashion, современная фотография</div>
+                                </div>
+                                <div class="teachers__slider-item teachers__slider-item-3">
+                                    <div class="teachers__slider-img"><img class="b-lazy" alt="img"
+                                                                           src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                                                           data-src="img/image 17.jpg"></div>
+                                    <div class="teachers__slider-name">Андрей Рогозин</div>
+                                    <div class="teachers__slider-caption">Портрет</div>
+                                </div>
+                                <div class="teachers__slider-item teachers__slider-item-4">
+                                    <div class="teachers__slider-img"><img class="b-lazy" alt="img"
+                                                                           src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                                                           data-src="img/image 12.jpg"></div>
+                                    <div class="teachers__slider-name">Игорь Андреев</div>
+                                    <div class="teachers__slider-caption">Арт-директор, cтилист</div>
+                                </div>
+                                <div class="teachers__slider-item teachers__slider-item-5">
+                                    <div class="teachers__slider-img"><img class="b-lazy" alt="img"
+                                                                           src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                                                           data-src="img/image 9.1.jpg"></div>
+                                    <div class="teachers__slider-name">Александр Врублевский</div>
+                                    <div class="teachers__slider-caption">Репортаж</div>
+                                </div>
+                                <div class="teachers__slider-item teachers__slider-item-1">
+                                    <div class="teachers__slider-img"><img class="b-lazy" alt="img"
+                                                                           src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                                                           data-src="img/image 13.jpg"></div>
+                                    <div class="teachers__slider-name">Влада Красильникова</div>
+                                    <div class="teachers__slider-caption">Студийная фотография</div>
+                                </div>
+                                <div class="teachers__slider-item teachers__slider-item-2">
+                                    <div class="teachers__slider-img"><img class="b-lazy" alt="img"
+                                                                           src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                                                           data-src="img/image 18.jpg"></div>
+                                    <div class="teachers__slider-name">Иван Князев</div>
+                                    <div class="teachers__slider-caption">Fashion, современная фотография</div>
+                                </div>
+                                <div class="teachers__slider-item teachers__slider-item-3">
+                                    <div class="teachers__slider-img"><img class="b-lazy" alt="img"
+                                                                           src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                                                           data-src="img/image 17.jpg"></div>
+                                    <div class="teachers__slider-name">Андрей Рогозин</div>
+                                    <div class="teachers__slider-caption">Портрет</div>
+                                </div>
+                                <div class="teachers__slider-item teachers__slider-item-4">
+                                    <div class="teachers__slider-img"><img class="b-lazy" alt="img"
+                                                                           src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                                                           data-src="img/image 12.jpg"></div>
+                                    <div class="teachers__slider-name">Игорь Андреев</div>
+                                    <div class="teachers__slider-caption">Арт-директор, cтилист</div>
+                                </div>
+                                <div class="teachers__slider-item teachers__slider-item-5">
+                                    <div class="teachers__slider-img"><img class="b-lazy" alt="img"
+                                                                           src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                                                           data-src="img/image 9.1.jpg"></div>
+                                    <div class="teachers__slider-name">Александр Врублевский</div>
+                                    <div class="teachers__slider-caption">Репортаж</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="review">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="review__title">
+                                        Оставить отзыв
+                                    </div>
+                                    <div class="review__desk">
+                                        У вас есть вопрос или предложение? Свяжитесь с нами через форму обратной связи.
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="review__form">
+                                        <div class="col-md-4">
+                                            <div class="subscribe__input review__input"><span class="input input--nao"><input
+                                                    class="input__field input__field--nao" id="input-4" type="text"><label
+                                                    class="input__label input__label--nao" for="input-4"><span
+                                                    class="input__label-content input__label-content--nao">Name</span></label><svg
+                                                    class="graphic graphic--nao" width="300%" height="100%" viewBox="0 0 1200 60"
+                                                    preserveAspectRatio="none"><path
+                                                    d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"></path></svg></span>
+                                            </div>
+                                        </div>
+
+
+                                    <div class="col-md-4">
+                                        <div class="subscribe__input review__input"><span class="input input--nao"><input
+                                                class="input__field input__field--nao" id="input-5" type="email"><label
+                                                class="input__label input__label--nao" for="input-5"><span
+                                                class="input__label-content input__label-content--nao">Email</span></label><svg
+                                                class="graphic graphic--nao" width="300%" height="100%" viewBox="0 0 1200 60"
+                                                preserveAspectRatio="none"><path
+                                                d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"></path></svg></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="subscribe__input review__input"><span class="input input--nao"><input
+                                                class="input__field input__field--nao" id="input-6" type="email"><label
+                                                class="input__label input__label--nao" for="input-6"><span
+                                                class="input__label-content input__label-content--nao">Телефон</span></label><svg
+                                                class="graphic graphic--nao" width="300%" height="100%" viewBox="0 0 1200 60"
+                                                preserveAspectRatio="none"><path
+                                                d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"></path></svg></span>
+                                        </div>
+                                    </div>
+                                        <div class="col-md-12">
+                                            <div class="subscribe__input review__textarea">
+                                                <span class="input input--nao">
+                                                    <textarea class="input__field input__field--nao" id="input-7">
+
+                                                                Ваше сообщение
+
+                                                        <svg class="graphic graphic--nao" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
+                                                            <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"></path>
+                                                        </svg>
+                                                    </textarea>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    <div class="review__btn">
+                                        <div class="subscribe__button"><!--button Подписаться-->
+                                            <button class="button button--itzel button--text-thick button--text-upper button--border-thick button--size-s">
+                                                <i class="button__icon icon icon-trash"></i><span>Подписаться</span></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-wrap about-page-contacts-bg">
+            <div class="upcoming-courses container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <!--<div class="upcoming-courses">-->
+                        <div class="upcoming-courses__title">
+                            Ближайшие курсы
+                        </div>
+                        <div class="upcoming-courses__list">
+                            <div class="upcoming-courses__item">
+                                <div class="upcoming-courses__img">
+                                    <img src="img/upcoming-courses1.jpg" alt="img" class="">
+                                </div>
+                                <div class="upcoming-courses__item-title">
+                                    Вечерняя группа
+                                </div>
+                                <div class="upcoming-courses__item-time">
+                                    22-25 мая, четверг-суббота
+                                </div>
+                                <div class="upcoming-courses__item-desc">
+                                    Уличная фотография. В поисках цвета
+                                </div>
+                            </div>
+                            <div class="upcoming-courses__item">
+                                <div class="upcoming-courses__img">
+                                    <img src="img/upcoming-courses2.jpg" alt="img" class="">
+                                </div>
+                                <div class="upcoming-courses__item-title">
+                                    Фототур
+                                </div>
+                                <div class="upcoming-courses__item-time">
+                                    22 мая, среда
+                                </div>
+                                <div class="upcoming-courses__item-desc">
+                                    Уличная фотография. Авторский подход
+                                </div>
+                            </div>
+                            <div class="upcoming-courses__item">
+                                <div class="upcoming-courses__img">
+                                    <img src="img/upcoming-courses3.jpg" alt="img" class="">
+                                </div>
+                                <div class="upcoming-courses__item-title">
+                                    Fashion
+                                </div>
+                                <div class="upcoming-courses__item-time">
+                                    24 мая, суббота
+                                </div>
+                                <div class="upcoming-courses__item-desc">
+                                    Бьюти-съемка
+                                </div>
+                            </div>
+                            <div class="upcoming-courses__item">
+                                <div class="upcoming-courses__img">
+                                    <img src="img/upcoming-courses4.jpg" alt="img" class="">
+                                </div>
+                                <div class="upcoming-courses__item-title">
+                                    Воркшоп
+                                </div>
+                                <div class="upcoming-courses__item-time">
+                                    24-28 мая, суббота-среда
+                                </div>
+                                <div class="upcoming-courses__item-desc">
+                                    Коллаж
+                                </div>
+                            </div>
+                            <div class="upcoming-courses__item">
+                                <div class="upcoming-courses__img">
+                                    <img src="img/upcoming-courses5.jpg" alt="img" class="">
+                                </div>
+                                <div class="upcoming-courses__item-title">
+                                    Fashion
+                                </div>
+                                <div class="upcoming-courses__item-time">
+                                    2 июня, воскресение
+                                </div>
+                                <div class="upcoming-courses__item-desc">
+                                    Мастер-класс Ольги Тупоноговой-Волковой в Петербурге
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="container contacts">-->
+            <div class="contacts container">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="contacts__title">Контакты ↗</div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="contacts__txt">
+                            <div class="contacts__place">107078, Москва, Каланчевская улица, дом 17 с.1, 6-й этаж
+                                <div class="contacts__nubmers"><a class="contacts__viber" href="">+7 (495) 123 45 64</a><a
+                                        class="contacts__telegram" href="">@photoplay_school</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="contacts__map">
+                            <script src="https://maps.googleapis.com/maps/api/js"></script>
+                            <script>// When the window has finished loading create our google map below
+
+
+                            google.maps.event.addDomListener(window, 'load', init);
+
+                            function init() {
+                                // Basic options for a simple Google Map
+                                // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
+                                var mapOptions = {
+                                    // How zoomed in you want the map to start at (always required)
+                                    zoom: 11,
+                                    // The latitude and longitude to center the map (always required)
+                                    center: new google.maps.LatLng(40.6700, -73.9400), // New York
+                                    // How you would like to style the map.
+                                    // This is where you would paste any style found on Snazzy Maps.
+                                    styles: [{
+                                        "featureType": "water",
+                                        "elementType": "geometry",
+                                        "stylers": [{"color": "#e9e9e9"}, {"lightness": 17}]
+                                    }, {
+                                        "featureType": "landscape",
+                                        "elementType": "geometry",
+                                        "stylers": [{"color": "#f5f5f5"}, {"lightness": 20}]
+                                    }, {
+                                        "featureType": "road.highway",
+                                        "elementType": "geometry.fill",
+                                        "stylers": [{"color": "#ffffff"}, {"lightness": 17}]
+                                    }, {
+                                        "featureType": "road.highway",
+                                        "elementType": "geometry.stroke",
+                                        "stylers": [{"color": "#ffffff"}, {"lightness": 29}, {"weight": 0.2}]
+                                    }, {
+                                        "featureType": "road.arterial",
+                                        "elementType": "geometry",
+                                        "stylers": [{"color": "#ffffff"}, {"lightness": 18}]
+                                    }, {
+                                        "featureType": "road.local",
+                                        "elementType": "geometry",
+                                        "stylers": [{"color": "#ffffff"}, {"lightness": 16}]
+                                    }, {
+                                        "featureType": "poi",
+                                        "elementType": "geometry",
+                                        "stylers": [{"color": "#f5f5f5"}, {"lightness": 21}]
+                                    }, {
+                                        "featureType": "poi.park",
+                                        "elementType": "geometry",
+                                        "stylers": [{"color": "#dedede"}, {"lightness": 21}]
+                                    }, {
+                                        "elementType": "labels.text.stroke",
+                                        "stylers": [{"visibility": "on"}, {"color": "#ffffff"}, {"lightness": 16}]
+                                    }, {
+                                        "elementType": "labels.text.fill",
+                                        "stylers": [{"saturation": 36}, {"color": "#333333"}, {"lightness": 40}]
+                                    }, {
+                                        "elementType": "labels.icon",
+                                        "stylers": [{"visibility": "off"}]
+                                    }, {
+                                        "featureType": "transit",
+                                        "elementType": "geometry",
+                                        "stylers": [{"color": "#f2f2f2"}, {"lightness": 19}]
+                                    }, {
+                                        "featureType": "administrative",
+                                        "elementType": "geometry.fill",
+                                        "stylers": [{"color": "#fefefe"}, {"lightness": 20}]
+                                    }, {
+                                        "featureType": "administrative",
+                                        "elementType": "geometry.stroke",
+                                        "stylers": [{"color": "#fefefe"}, {"lightness": 17}, {"weight": 1.2}]
+                                    }]
+                                };
+                                // Get the HTML DOM element that will contain your map
+                                // We are using a div with id="map" seen below in the <body>
+                                var mapElement = document.getElementById('map');
+                                // Create the Google Map using our element and options defined above
+                                var map = new google.maps.Map(mapElement, mapOptions);
+                                // Let's also add a marker while we're at it
+                                var marker = new google.maps.Marker({
+                                    position: new google.maps.LatLng(40.6700, -73.9400),
+                                    map: map,
+                                    title: 'Snazzy!'
+                                });
+                            }
+                            </script>
+                            <div id="map"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="about-page-contacts-bg">
+        <div class="container footer">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="footer__inner">
+                        <div class="footer__logo"><a href="#"><img src="img/svg/logo-black.svg" alt="logo"></a>
+                            <div class="footer__logo-copyright">© 2005 – 2019 г</div>
+                        </div>
+                        <div class="footer__right">
+                            <div class="footer__list-wrap">
+                                <div class="footer__list-title">Программы</div>
+                                <div class="footer__list">
+                                    <div class="footer__list-item"><a class="footer__list-link" href="#">Все
+                                        программы</a></div>
+                                    <div class="footer__list-item"><a class="footer__list-link" href="#">Расписание</a>
+                                    </div>
+                                    <div class="footer__list-item"><a class="footer__list-link" href="#">Фототуры</a>
+                                    </div>
+                                    <div class="footer__list-item"><a class="footer__list-link" href="#">Открытые
+                                        лекции</a></div>
+                                    <div class="footer__list-item"><a class="footer__list-link"
+                                                                      href="#">Онлайн-обучение</a></div>
+                                </div>
+                            </div>
+                            <div class="footer__list-wrap">
+                                <div class="footer__list-title">Аренда</div>
+                                <div class="footer__list">
+                                    <div class="footer__list-item"><a class="footer__list-link" href="#">Фотостудии</a>
+                                    </div>
+                                    <div class="footer__list-item"><a class="footer__list-link" href="#">Для
+                                        тренингов</a></div>
+                                    <div class="footer__list-item"><a class="footer__list-link"
+                                                                      href="#">Оборудования</a></div>
+                                </div>
+                            </div>
+                            <div class="footer__list-wrap">
+                                <div class="footer__list-title">Блог ↗</div>
+                                <div class="footer__list">
+                                    <div class="footer__list-item"><a class="footer__list-link" href="#">Видео</a></div>
+                                    <div class="footer__list-item"><a class="footer__list-link" href="#">Выусники
+                                        Photoplay</a></div>
+                                    <div class="footer__list-item"><a class="footer__list-link" href="#">Инстаграм
+                                        дня</a></div>
+                                </div>
+                            </div>
+                            <div class="footer__list-wrap">
+                                <div class="footer__list-title">Аренда</div>
+                                <div class="footer__list">
+                                    <div class="footer__list-item"><a class="footer__list-link" href="#">О нас</a></div>
+                                    <div class="footer__list-item"><a class="footer__list-link"
+                                                                      href="#">Преподаватели</a></div>
+                                    <div class="footer__list-item"><a class="footer__list-link" href="#">Студенты</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="popup-search">
+        <div class="popup-search__inner">
+            <div class="popup-search__form"><a class="popup-search__btn" href="#">
+                <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14.0151 14.0151L21 21" stroke="white" stroke-width="2" stroke-linecap="square"></path>
+                    <path d="M8.5 16C12.6421 16 16 12.6421 16 8.5C16 4.35786 12.6421 1 8.5 1C4.35786 1 1 4.35786 1 8.5C1 12.6421 4.35786 16 8.5 16Z"
+                          stroke="white" stroke-width="2" stroke-linecap="square"></path>
+                </svg>
+            </a><input class="popup-search__input" placeholder="Что будем искать?"><a class="popup-search__close">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 16L6.57204 7.93799L0.275269 0H3.50968L8.0172 5.95349H8.12043L12.8 0H15.8624L9.6 7.75194L16 16H12.7656L8.15484 9.73643H8.05161L3.06237 16H0Z"
+                          fill="black"></path>
+                </svg>
+            </a></div>
+            <div class="popup-search__result"></div>
+        </div>
+    </div>
+</div>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/blazy.min.js"></script>
+<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="js/slick.min.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>

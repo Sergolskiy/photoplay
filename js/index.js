@@ -115,6 +115,36 @@ $(document).ready(function () {
         $('.programs__list').slick({});
     }
 
+    if ($(window).width() < 700) {
+        $('.about-features__list').slick({});
+    }
+
+
+    $('.upcoming-courses__list').slick({
+        slidesToShow: 5,
+        responsive: [
+            {
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 3
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1
+                }
+            }
+        ]
+    });
+
+
 
     $('.slick-next, .slick-prev').on('click', function () {
         setTimeout(function () {
