@@ -145,36 +145,49 @@ $(document).ready(function () {
         });
     }
 
-    if ($(window).width() < 700) {
+    if ($(window).width() < 996) {
         $('.about-features__list').slick({});
     }
 
+    $('.about-page-slider__list').slick({
+        slidesToShow: 1,
+    });
 
-    $('.upcoming-courses__list').slick({
-        slidesToShow: 5,
+    $('.graduates__list').slick({
+        slidesToShow: 2,
         responsive: [
             {
-                breakpoint: 992,
+                breakpoint: 1200,
                 settings: {
-                    slidesToShow: 3
-                }
-            },
-            {
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 2
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1
+                    slidesToShow: 1,
                 }
             }
         ]
     });
 
+    $('.graduates__works-list').slick({
+        slidesToShow: 4,
+        draggable: false,
+        responsive: [
+            {
+                breakpoint: 772,
+                settings: {
+                    slidesToShow: 3,
+                }
+            },
+            {
+                breakpoint: 500,
+                settings: {
+                    slidesToShow: 2,
+                }
+            },
+        ]
+    });
 
+    $('.blog__instagram-slider').slick({
+        slidesToShow: 1,
+        dots: true,
+    });
 
     $('.slick-next, .slick-prev').on('click', function () {
         setTimeout(function () {
